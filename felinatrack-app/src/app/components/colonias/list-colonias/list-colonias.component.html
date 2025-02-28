@@ -1,0 +1,21 @@
+<h2>Listado de Colonias</h2>
+<table mat-table [dataSource]="colonias" class="mat-elevation-z8">
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let col">{{ col.nombre }}</td>
+  </ng-container>
+  <ng-container matColumnDef="municipio">
+    <th mat-header-cell *matHeaderCellDef>Municipio</th>
+    <td mat-cell *matCellDef="let col">{{ col.municipio }}</td>
+  </ng-container>
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef>Acciones</th>
+    <td mat-cell *matCellDef="let col">
+      <button mat-button color="primary" [routerLink]="['/colonias', col.id]">
+        Ver Detalles
+      </button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

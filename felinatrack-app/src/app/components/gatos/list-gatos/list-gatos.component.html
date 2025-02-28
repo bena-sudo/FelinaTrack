@@ -1,0 +1,19 @@
+<h2>Listado de Gatos</h2>
+    <table mat-table [dataSource]="gatos" class="mat-elevation-z8">
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let gato"> {{ gato.nombre }} </td>
+      </ng-container>
+      <ng-container matColumnDef="color">
+        <th mat-header-cell *matHeaderCellDef> Color </th>
+        <td mat-cell *matCellDef="let gato"> {{ gato.color }} </td>
+      </ng-container>
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let gato">
+          <button mat-button color="primary" [routerLink]="['/gatos', gato.id]">Ver Detalles</button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
