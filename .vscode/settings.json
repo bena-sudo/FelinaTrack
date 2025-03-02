@@ -11,5 +11,6 @@
             "username": "mancomunitat",
             "password": "mancomunitat"
         }
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "automatic"
 }
