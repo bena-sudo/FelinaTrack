@@ -1,0 +1,15 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "felinatrack",
+            "database": "felinatrack",
+            "username": "mancomunitat",
+            "password": "mancomunitat"
+        }
+    ]
+}
