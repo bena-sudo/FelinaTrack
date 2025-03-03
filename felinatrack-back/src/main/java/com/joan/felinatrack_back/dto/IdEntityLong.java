@@ -1,13 +1,26 @@
 package com.joan.felinatrack_back.dto;
 
 import com.joan.felinatrack_back.exception.DataValidationException;
-
 import lombok.Value;
 
+/**
+ * Clase que representa un ID de entidad de tipo Long.
+ * Utiliza un constructor para validar que el ID proporcionado sea un valor
+ * numérico válido de tipo Long.
+ */
 @Value
 public class IdEntityLong {
-    Long value;
 
+    Long value; // Atributo que almacena el valor del ID de tipo Long
+
+    /**
+     * Constructor que recibe un String, intenta convertirlo a Long
+     * y lanza una excepción personalizada si el formato es inválido.
+     * 
+     * @param id El ID en formato String.
+     * @throws DataValidationException Si el formato del ID no es válido (no es un
+     *                                 número Long).
+     */
     public IdEntityLong(String id) {
         try {
             this.value = Long.valueOf(id);
