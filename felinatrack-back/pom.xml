@@ -11,7 +11,7 @@
 		<relativePath />
 	</parent>
 
-	<groupId>com.joan</groupId>
+	<groupId>com.pfc</groupId>
 	<artifactId>felinatrack-back</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
