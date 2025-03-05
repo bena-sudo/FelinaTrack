@@ -135,3 +135,18 @@ CREATE TABLE IF NOT EXISTS responsible_colonies (
   CONSTRAINT fk_colony FOREIGN KEY (colony_id)
     REFERENCES colonies (id) ON DELETE CASCADE
 );
+
+INSERT INTO roles (name, description) VALUES 
+('ROLE_ADMIN', 'Full system access, can manage users, roles, and settings'),
+('ROLE_VOLUNTEER', 'Can view and manage assigned cat colonies'),
+('ROLE_COLONY_MANAGER', 'Oversees multiple colonies and volunteer activities'),
+('ROLE_USER_MANAGER', 'Can create, assign, and manage users and their roles'),
+('ROLE_SUPERVISOR', 'Can approve or reject adoptions'),
+('ROLE_USER', 'Accesses the platform and views their accreditation history');
+
+INSERT INTO permissions (name, description) VALUES 
+('CREATE_COLONY', 'Allows creating a new cat colony'),
+('DELETE_CAT', 'Allows removing a cat from the system'),
+('UPDATE_HEALTH', 'Allows modifying health records of cats'),
+('APPROVE_ADOPTION', 'Allows approving or rejecting adoption requests'),
+('VIEW_USERS', 'Allows viewing registered users');
