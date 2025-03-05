@@ -2,7 +2,9 @@
 CREATE USER mancomunitat WITH PASSWORD 'mancomunitat';
 CREATE DATABASE felinatrack OWNER mancomunitat;
 
--- Eliminación de tablas
+-- -----------------------------------------------------
+-- Eliminación de tablas si ya existen
+-- -----------------------------------------------------
 DROP TABLE IF EXISTS colonies;
 DROP TABLE IF EXISTS cats;
 DROP TABLE IF EXISTS responsibles;
@@ -23,6 +25,22 @@ CREATE TABLE IF NOT EXISTS colonies (
   location VARCHAR(255),
   municipality VARCHAR(255),
   coordinates VARCHAR(255)
+);
+
+-- -----------------------------------------------------
+-- Tabla cats (gatos)
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS cats (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  gender VARCHAR(50),
+  color VARCHAR(50),
+  breed VARCHAR(50),
+  markings TEXT,
+  health VARCHAR(50),
+  colony_id INT NOT NULL,
+  CONSTRAINT fk_colony FOREIGN KEY (colony_id)
+    REFERENCES colonies (id) ON DELETE CASCADE
 );
 
 -- -----------------------------------------------------
@@ -136,6 +154,9 @@ CREATE TABLE IF NOT EXISTS responsible_colonies (
     REFERENCES colonies (id) ON DELETE CASCADE
 );
 
+-- -----------------------------------------------------
+-- Insertar roles en la tabla roles
+-- -----------------------------------------------------
 INSERT INTO roles (name, description) VALUES 
 ('ROLE_ADMIN', 'Full system access, can manage users, roles, and settings'),
 ('ROLE_VOLUNTEER', 'Can view and manage assigned cat colonies'),
@@ -144,9 +165,13 @@ INSERT INTO roles (name, description) VALUES
 ('ROLE_SUPERVISOR', 'Can approve or reject adoptions'),
 ('ROLE_USER', 'Accesses the platform and views their accreditation history');
 
+-- -----------------------------------------------------
+-- Insertar permisos en la tabla permissions
+-- -----------------------------------------------------
 INSERT INTO permissions (name, description) VALUES 
 ('CREATE_COLONY', 'Allows creating a new cat colony'),
 ('DELETE_CAT', 'Allows removing a cat from the system'),
 ('UPDATE_HEALTH', 'Allows modifying health records of cats'),
 ('APPROVE_ADOPTION', 'Allows approving or rejecting adoption requests'),
 ('VIEW_USERS', 'Allows viewing registered users');
+
