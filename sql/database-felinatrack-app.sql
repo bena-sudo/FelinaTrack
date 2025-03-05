@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS responsibles (
   name VARCHAR(255) NOT NULL,
   type VARCHAR(50) NOT NULL CHECK (type IN ('association', 'volunteer', 'government')),
   contact VARCHAR(255),
-  user_id BIGINT,w
+  user_id BIGINT,
   colony_id INT NOT NULL,
   CONSTRAINT fk_user FOREIGN KEY (user_id)
     REFERENCES users (id) ON DELETE SET NULL,
