@@ -78,9 +78,8 @@ CREATE TABLE IF NOT EXISTS role_permissions (
 INSERT INTO roles (name, description) VALUES 
 ('ROLE_ADMIN', 'Full system access, can manage users, roles, and settings'),
 ('ROLE_VOLUNTEER', 'Can view and manage assigned cat colonies'),
-('ROLE_VETERINARIAN', 'Can update cat health records and treatments'),
--- ('ROLE_ADOPTER', 'Can apply for cat adoption'),
-('ROLE_MANAGER', 'Oversees multiple colonies and volunteer activities'),
+('ROLE_COLONY_MANAGER', 'Oversees multiple colonies and volunteer activities'),
+('ROLE_USER_MANAGER', 'Can create, assign, and manage users and their roles'),
 ('ROLE_SUPERVISOR', 'Can approve or reject adoptions'),
 ('ROLE_USER', 'Accesses the platform and views their accreditation history');
 
