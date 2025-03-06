@@ -1,7 +1,45 @@
-.footer {
+/* Estilos generales del footer */
+footer {
+  background-color: var(--background_color); /* Color 5 de la paleta */
+  color: var(--text_color); /* Color de texto: Color 2 de la paleta */
+  padding: 20px 0;
   text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Contenedor del footer */
+footer .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Estilo del texto de derechos de autor */
+footer .copyright {
+  font-size: 0.9rem;
+  color: var(--text_color); /* Color de texto */
+  margin-bottom: 10px;
+}
+
+/* Estilo de los enlaces */
+footer .footer-links a {
+  color: var(--button_color); /* Color 2 de la paleta */
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 1rem;
+}
+
+footer .footer-links a:hover {
+  color: var(--button_hover_color); /* Hover color de botones */
+}
+
+/* Footer en versión móvil */
+@media (max-width: 768px) {
+  footer .footer-links {
+      flex-direction: column;
+  }
+
+  footer .footer-links a {
+      margin: 5px 0;
+  }
 }

@@ -2,3 +2,17 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+:root {
+    --background_color: #D6D58E; /* Color 5 from the palette */
+    --background_hover: #DBF227; /* Color 4 from the palette */
+    --button_color: #005C53; /* Color 2 from the palette */
+    --button_color_opacity: rgba(0, 91, 82, 0.5); /* Color 2 in RGBA */
+    --button_hover_color: #042940; /* Color 1 from the palette */
+    --login_button: #9FC131; /* Color 3 from the palette */
+    --login_button_hover: #74D31A; /* A brighter tone of Color 3 */
+    --text_color: #3F708D; /* A soft blue similar to Color 1 */
+    --text_hover_color: #1E2B34; /* Hover color for text */
+}
+
