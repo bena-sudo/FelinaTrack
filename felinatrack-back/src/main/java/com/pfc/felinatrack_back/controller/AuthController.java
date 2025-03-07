@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import com.pfc.felinatrack_back.model.db.RolDb;
+import com.pfc.felinatrack_back.model.db.RoleDb;
 import com.pfc.felinatrack_back.model.db.UserDb;
 import com.pfc.felinatrack_back.model.dto.LoginUser;
 import com.pfc.felinatrack_back.model.dto.Message;
@@ -21,7 +21,7 @@ import com.pfc.felinatrack_back.security.dto.JwtDto;
 import com.pfc.felinatrack_back.security.dto.NewUser;
 import com.pfc.felinatrack_back.security.service.JwtService;
 import com.pfc.felinatrack_back.security.service.UsuarioService;
-import com.pfc.felinatrack_back.src.RolService;
+import com.pfc.felinatrack_back.src.RoleService;
 
 import jakarta.validation.Valid;
 import java.util.HashSet;
@@ -42,7 +42,7 @@ public class AuthController {
     UsuarioService usuarioService;
 
     @Autowired
-    RolService rolService;
+    RoleService rolService;
 
     @Autowired
     JwtService jwtProvider;
@@ -59,7 +59,7 @@ public class AuthController {
         UserDb usuarioDb =
                 new UserDb(nuevoUsuario.getName(), nuevoUsuario.getEmail(),
                         passwordEncoder.encode(nuevoUsuario.getPassword()), nuevoUsuario.getPhone());
-        Set<RolDb> rolesDb = new HashSet<>();
+        Set<RoleDb> rolesDb = new HashSet<>();
         rolesDb.add(rolService.getByRoleName(RoleName.ROL_USUARIO).get());
         if(nuevoUsuario.getRoles().contains("ROL_ADMINISTRADOR"))
             rolesDb.add(rolService.getByRoleName(RoleName.ROL_ADMINISTRADOR).get());

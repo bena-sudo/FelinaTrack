@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 public class ActionEdit {
-    private Integer id;
+    private Long id;
 
     @NotBlank
     @Size(max = 50, message = "The type cannot exceed 50 characters")

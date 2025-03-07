@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class CatEdit {
-    private Integer id;
+    private Long id;
 
     @NotBlank
     @Size(max = 255, message = "The name cannot exceed 255 characters")

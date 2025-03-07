@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class CatInfo {
-    private Integer id;
+    private Long id;
     private String name;
     private String gender;
     private String color;

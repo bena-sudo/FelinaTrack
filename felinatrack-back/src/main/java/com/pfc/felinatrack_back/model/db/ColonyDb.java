@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 public class ColonyDb {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
     private Integer quantity;

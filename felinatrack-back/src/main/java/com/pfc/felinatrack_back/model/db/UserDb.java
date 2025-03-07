@@ -42,7 +42,7 @@ public class UserDb {
         joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private Set<RolDb> roles;
+    private Set<RoleDb> roles;
 
 
     public UserDb(@NotNull String name, @NotNull String email,

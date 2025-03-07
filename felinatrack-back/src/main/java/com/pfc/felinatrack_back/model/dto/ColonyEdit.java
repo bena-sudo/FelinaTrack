@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class ColonyEdit {
-    private Integer id;
+    private Long id;
 
     @NotNull(message = "Quantity cannot be null")
     private Integer quantity;

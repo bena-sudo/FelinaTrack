@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class ResponsibleList {
-    private Integer id;
+    private Long id;
     private String name;
     private String type;
     private String contact;

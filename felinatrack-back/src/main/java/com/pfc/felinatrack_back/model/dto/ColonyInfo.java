@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class ColonyInfo {
-    private Integer id;
+    private Long id;
     private String location;
     private String municipality;
     private Integer quantity;

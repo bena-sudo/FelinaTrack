@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class IssueDb {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false, length = 50)
     private String type; // 'conflict', 'emergency'

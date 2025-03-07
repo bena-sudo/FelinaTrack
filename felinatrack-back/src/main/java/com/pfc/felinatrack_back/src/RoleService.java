@@ -1,4 +1,4 @@
-package com.pfc.felinatrack_back.security.service;
+package com.pfc.felinatrack_back.src;
 
 import java.util.Optional;
 
@@ -8,7 +8,8 @@ import com.pfc.felinatrack_back.model.db.RoleDb;
 import com.pfc.felinatrack_back.model.enums.RoleName;
 
 
-public interface RolDetailsService {
+
+public interface RoleService {
     public Optional<RoleDb> getByRoleName(RoleName roleName);
     public void save(@NonNull RoleDb rol);
 }

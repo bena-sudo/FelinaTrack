@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class ActionInfo {
-    private Integer id;
+    private Long id;
     private String type;
     private String date;
     private String description;
