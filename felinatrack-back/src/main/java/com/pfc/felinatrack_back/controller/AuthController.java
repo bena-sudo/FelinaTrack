@@ -60,9 +60,9 @@ public class AuthController {
                 new UserDb(nuevoUsuario.getName(), nuevoUsuario.getEmail(),
                         passwordEncoder.encode(nuevoUsuario.getPassword()), nuevoUsuario.getPhone());
         Set<RolDb> rolesDb = new HashSet<>();
-        rolesDb.add(rolService.getByRoleName(RoleName.ROLE_USER).get());
-        if(nuevoUsuario.getRoles().contains("ROLE_ADMIN"))
-            rolesDb.add(rolService.getByRoleName(RoleName.ROLE_ADMIN).get());
+        rolesDb.add(rolService.getByRoleName(RoleName.ROL_USUARIO).get());
+        if(nuevoUsuario.getRoles().contains("ROL_ADMINISTRADOR"))
+            rolesDb.add(rolService.getByRoleName(RoleName.ROL_ADMINISTRADOR).get());
         usuarioDb.setRoles(rolesDb);
         usuarioService.save(usuarioDb);
         return ResponseEntity.status(HttpStatus.CREATED).body(new Message("Usuario creado"));

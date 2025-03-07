@@ -1,19 +1,18 @@
 -- Script SQL completo para PostgreSQL con datos de prueba
-CREATE USER mancomunitat WITH PASSWORD 'mancomunitat';
-CREATE DATABASE felinatrack OWNER mancomunitat;
 
 -- -----------------------------------------------------
 -- Eliminación de tablas si ya existen
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS role_permissions;
+DROP TABLE IF EXISTS user_roles;
+DROP TABLE IF EXISTS permissions;
+DROP TABLE IF EXISTS roles;
+DROP TABLE IF EXISTS verificationtoken;
 DROP TABLE IF EXISTS colonies;
 DROP TABLE IF EXISTS cats;
 DROP TABLE IF EXISTS responsibles;
 DROP TABLE IF EXISTS actions;
 DROP TABLE IF EXISTS issues;
-DROP TABLE IF EXISTS permissions;
-DROP TABLE IF EXISTS user_roles;
-DROP TABLE IF EXISTS roles;
-DROP TABLE IF EXISTS role_permissions;
 DROP TABLE IF EXISTS users;
 
 -- -----------------------------------------------------
@@ -24,7 +23,8 @@ CREATE TABLE IF NOT EXISTS colonies (
   quantity INT,
   location VARCHAR(255),
   municipality VARCHAR(255),
-  coordinates VARCHAR(255)
+  latitud VARCHAR(50),
+  longitud VARCHAR(50)
 );
 
 -- -----------------------------------------------------
@@ -82,11 +82,8 @@ CREATE TABLE IF NOT EXISTS responsibles (
   type VARCHAR(50) NOT NULL CHECK (type IN ('association', 'volunteer', 'government')),
   contact VARCHAR(255),
   user_id BIGINT,
-  colony_id INT NOT NULL,
   CONSTRAINT fk_user FOREIGN KEY (user_id)
-    REFERENCES users (id) ON DELETE SET NULL,
-  CONSTRAINT fk_colony FOREIGN KEY (colony_id)
-    REFERENCES colonies (id) ON DELETE CASCADE
+    REFERENCES users (id) ON DELETE SET NULL
 );
 
 -- -----------------------------------------------------
@@ -158,12 +155,13 @@ CREATE TABLE IF NOT EXISTS responsible_colonies (
 -- Insertar roles en la tabla roles
 -- -----------------------------------------------------
 INSERT INTO roles (name, description) VALUES 
-('ROLE_ADMIN', 'Full system access, can manage users, roles, and settings'),
-('ROLE_VOLUNTEER', 'Can view and manage assigned cat colonies'),
-('ROLE_COLONY_MANAGER', 'Oversees multiple colonies and volunteer activities'),
-('ROLE_USER_MANAGER', 'Can create, assign, and manage users and their roles'),
-('ROLE_SUPERVISOR', 'Can approve or reject adoptions'),
-('ROLE_USER', 'Accesses the platform and views their accreditation history');
+('ROL_ADMINISTRADOR', 'Acceso completo al sistema, puede gestionar usuarios, roles y configuraciones'),
+('ROL_VOLUNTARIO', 'Puede ver y gestionar las colonias de gatos asignadas'),
+('ROL_GESTOR_COLONIA', 'Supervisa múltiples colonias y actividades de voluntarios'),
+('ROL_GESTOR_USUARIOS', 'Puede crear, asignar y gestionar usuarios y sus roles'),
+('ROL_SUPERVISOR', 'Puede aprobar o rechazar adopciones'),
+('ROL_USUARIO', 'Accede a la plataforma y ve su historial de acreditación');
+
 
 -- -----------------------------------------------------
 -- Insertar permisos en la tabla permissions

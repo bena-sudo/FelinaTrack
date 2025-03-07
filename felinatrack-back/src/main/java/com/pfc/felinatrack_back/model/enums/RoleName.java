@@ -1,13 +1,12 @@
 package com.pfc.felinatrack_back.model.enums;
 
 public enum RoleName {
-    ROLE_ADMIN("Full system access, can manage users, roles, and settings"),
-    ROLE_VOLUNTEER("Can view and manage assigned cat colonies"),
-    ROLE_VETERINARIAN("Can update cat health records and treatments"),
-    ROLE_ADOPTER("Can apply for cat adoption"),
-    ROLE_MANAGER("Oversees multiple colonies and volunteer activities"),
-    ROLE_SUPERVISOR("Can approve or reject adoptions"),
-    ROLE_USER("Accesses the platform and views their accreditation history");
+    ROL_ADMINISTRADOR("Acceso completo al sistema, puede gestionar usuarios, roles y configuraciones"),
+    ROL_VOLUNTARIO("Puede ver y gestionar las colonias de gatos asignadas"),
+    ROL_GESTOR_COLONIA("Supervisa múltiples colonias y actividades de voluntarios"),
+    ROL_GESTOR_USUARIOS("Puede crear, asignar y gestionar usuarios y sus roles"),
+    ROL_SUPERVISOR("Puede aprobar o rechazar adopciones"),
+    ROL_USUARIO("Accede a la plataforma y ve su historial de acreditación");
 
     private final String description;
 
